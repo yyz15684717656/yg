@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="../sass/base.css">
+    <link rel="stylesheet" href="../sass/login.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <div class="head">
+        <div class="c-login">
+            <a href="javascript:;" class="c-logo-link">
+            </a>
+        </div>
+       <div class="c-service"></div>
+    </div>
+    <!-- banner与content -->
+    <div class="banner">
+        <div>
+            <div class="content">
+            <div class="top">
+                <div class="left">
+                    <span class="btn1">账号登录</span>
+                </div>
+                <div class="right">
+                    <span class="btn2">账号注册</span>
+                </div>
+            </div>
+            <div class="bottom">
+                <form class="login-form active">
+                    <input type="text" placeholder="手机号/用户名/邮箱" id="user_name"/>
+                    <input type="password" placeholder="密码" id="password"/>
+                    <button id="login">登　录</button>
+                    <p class="message">还没有账户? <a href="#" class="a1">立刻创建</a></p>
+                  </form>
+                  <form class="register-form">
+                    <input type="text" placeholder="用户名" id="r_user_name"/>
+                    <input type="password" placeholder="密码" id="r_password" />
+                    <input type="text" placeholder="电子邮件" id="r_email"/>
+                    <button id="create">创建账户</button>
+                    <p class="message">已经有了一个账户? <a href="login.html" class="a2">立刻登录</a></p>
+                  </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-3.4.1.js"></script>
+<script src="../js/promiseAjax.js"></script>
+<script src="../js/cookie.js"></script>
+<script type="text/javascript">
+     $(".btn1").click(function(){
+         $(this).parent().parent().siblings().children(".login-form").addClass("active").siblings().removeClass("active");
+     })
+     $(".btn2").click(function(){
+        $(this).parent().parent().siblings().children(".register-form").addClass("active").siblings().removeClass("active");
+     })
+         //  -------login-----------
+        // 获取用户名的文本框
+        var u = document.querySelector("#user_name");
+        // 页面一加载就应该看看是否有记住的用户名 - 从cookie中拿uname
+        var uname = getCookie("uname");
+        if(uname){
+            // 给用户名的文本框添加value
+            u.value = uname;
+        }else{
+            u.value = '';
+        }
+
+        var btn = document.querySelector("#login");
+        btn.addEventListener("click",login);
+        function login(e){
+            e.preventDefault();
+            var username = u.value.trim();
+            var password = document.querySelector("#password").value.trim();
+            pAjax({
+                url:"/gy/server/login.php",
+                type:"post",
+                data:{
+                    username:username,
+                    password:password
+                }
+            }).then(function(res){
+                // console.log(res);
+                if(res.status==200){
+                    // 先存cookie
+                    setCookie("username",username,7200);
+                    alert(res.msg);
+                    location.href = 'index.html';
+                }else{
+                    alert(res.msg);
+                    return;
+                }
+            });
+        }
+ </script>
+        <!-- ----------注册---------- -->
+    <script>
+        var btn = document.querySelector("#create");
+        btn.addEventListener("click",register);
+        function register(e){
+            e.preventDefault();
+            // 获取用户名
+            var username = document.querySelector("#r_user_name").value.trim();
+            var password = document.querySelector("#r_password").value.trim();
+            var email = document.querySelector("#r_email").value.trim();
+            pAjax({
+                url:"/gy/server/register.php",
+                type:"post",
+                data:{
+                    username:username,
+                    password:password,
+                    email:email
+                }
+            }).then(function(res){
+                if(res.status==200){
+                    console.log(res);
+                    alert(res.msg);
+                    $(".register-form").removeClass("active").siblings().addClass("active");
+                }else{
+                    alert(res.msg);
+                    return;
+                }
+            });
+        }
+        $(".a1").click(function(){
+            $(this).parent().parent().removeClass("active").siblings().addClass("active");
+        })
+        $(".a2").click(function(){
+            $(this).parent().parent().removeClass("active").siblings().addClass("active");
+        })
+    </script> 
+        <!-- ------------------ -->
+</html>

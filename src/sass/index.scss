@@ -1,0 +1,233 @@
+@import "./mixin";
+@import "./var";
+// banner区域
+.banner{
+    width: 100%;
+    height: 369px;
+    overflow: hidden;
+    background: url("../images/banner.jpg") no-repeat;
+    background-size: 100% 420px;
+    >.swiper-container{
+        overflow: hidden;
+        width:58%;
+        height:335px;
+        margin: 15px  auto 0px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) translateY(32px);
+        z-index: 1;
+        >img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+}
+//每日必看专区
+.see{
+    width: 100%;
+    height: 450px;
+    background-color: #fff;
+    >.container{
+        display: block;
+        >.top{
+            margin-top: 30px;
+            display: block;
+            width: 100%;
+            height: 70px;
+            background: url("../images/pic_01.jpg") no-repeat center;
+            background-size: 100% 100%;
+            z-index: 1;
+        }
+        >.bottom{
+            @include flex;
+            width: 100%;
+            height:100%;
+            justify-content: space-between;
+            .left,.right{
+                width: 48%;
+                height: 90%;
+                box-shadow: 0px 0px 1px 1px #ccc;
+            }
+            .left,.right{
+                cursor: pointer;
+                box-sizing: border-box;
+                padding-top: 100px;
+                display: flex;
+                justify-content: space-between;
+                margin-right: 10px;
+                background: url("../images/pic_02.jpg") no-repeat left;
+                background-size: 610px 100%;
+                .left_left,.left_center,.left_right{
+                    position: relative;
+                    height: 97%;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    >img{
+                        width: 90%;
+                        height: 80%;
+                        margin-bottom: 8px;
+                    }
+                    >.box5{
+                        width: 122px;
+                        height: 76px;
+                        border-radius: 4px;
+                        background-color: rgba(255, 255, 255, 0.8);
+                        position: absolute;
+                        bottom: 50%;
+                        left: 50%;
+                        transform: translateX(-60px) translateY(80px);
+                        @include flex;
+                        flex-direction: column;
+
+                        >img{
+                            width: 80px;
+                            height: 40px;
+                            display: block;
+                            
+                        }
+                        >em{
+                            width: 50px;
+                            height: 17px;
+                            font-size: 12px;
+                            font-style: normal;
+                            margin-top: 5px;
+                            
+                        }
+                    }
+                    >p{
+                        background: url("../images/pic_04.png") no-repeat 25px;
+                        background-size: 50px 18px;
+                        width: 100%;
+                        height: 18px;
+                        @include flex;
+                    }
+                }
+            }
+            .right{
+                justify-content: space-around;
+                background: url("https://h2.appsimg.com/b.appsimg.com/upload/mst/2019/10/30/17/mst_985b0200a4163593fcd4647ac9d856f7_1140x684_90.jpg");
+                background-size: 580px 100%;
+                .left_left,.left_center,.left_right{
+                    
+                    width: 170px;
+                    height: 260px;
+                    box-shadow: 0px 0px 1px 1px #ccc;
+                    margin-top: 16px;
+                    >p{
+                        width: 100%;
+                        height: 100%;
+                      @include flex;  
+                      background: none;
+                    }
+                }
+               .left_left img,.left_center img, .left_right img{
+                    height: 89%;
+                    width: 100%;
+                    display: block;
+                    margin-bottom: 0;
+                }
+                .left_left>.box5,.left_center>.box5,.left_right>.box5{
+                    border: 0;
+                    background: none;
+                    width: 120px;
+                    height: 22px;
+                }
+            }
+        }
+    }
+}
+.container{
+        hr{
+            margin-top: 90px;
+        }
+    
+}
+//新特卖
+.new{
+    width: 100%;
+    height: auto;
+    .new_container{
+        width: 1200px;
+        height: auto;
+        margin: 0 auto;
+        border-top: 1px solid #ccc;
+        .top{
+            width: 100%;
+            height: 68px;
+            background: url("https://a.vpimg4.com/upload/dop/2019/05/23/58/today_DDp.png") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .sort{
+            width: 100%;
+            height: 44px;
+            background: url("https://a.vpimg3.com/upload/dop/2019/05/23/118/count_topfive.png") no-repeat left;
+            margin-top: 30px;
+            position: relative;
+            >.time_box{
+                width: 98px;
+                height: 26px;
+                position: absolute;
+                left: 270px;
+                top: 2px;
+                @include flex;
+                justify-content: space-evenly;
+                >span{
+                   color: #fff;
+                }
+            }
+        }
+       
+        }
+        .new_content{
+            width:1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+            box-sizing: border-box;
+            >.box7{
+                cursor: pointer;
+                padding-top: 20px;
+                width: 48%;
+                margin: 0 auto;
+                margin-bottom: 10px;
+                >img{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                }
+                >p{
+                    width: 100%;
+                    height: 20px;
+                    line-height: 20px;
+                    font-size: 16px;
+                    color: #000;
+                    font-weight: 900;
+                    margin: 10px 0px;
+                    padding-left: 10px;
+                }
+                >span{
+                    display: block;
+                    width: 100%;
+                    height: 18px;
+                    line-height: 18px;
+                    color: $color;
+                    padding-left: 10px;
+                    font-size: 18px;
+                    font-weight: 900;
+                    >em{
+                        font-style: normal;
+                        color: #000;
+                        font-weight: 100;
+                        font-size: 14px;
+                    }
+                }
+            }  
+    }
+    
+}

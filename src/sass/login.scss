@@ -1,0 +1,136 @@
+@import "./var";
+@import "./mixin";
+@import "./base";
+.head{
+    width: 1000px;
+    height: 100px;
+    margin: 0 auto;
+    @include flex;
+    justify-content: space-between;
+    .c-logo{
+        display: inline;
+    }
+    .c-logo-link {
+        background-image: url("../images/icon_all02.png");
+        background-position: -308px -57px;
+        width: 125px;
+        height: 100px;
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+    }
+    .c-service {
+        background-image: url(//member-ssl.vipstatic.com/img/passport/sprites-hash-c9975078.png?4eaaf192);
+        background-position: 0 0;
+        width: 304px;
+        height: 100px;
+        z-index: 1;
+    }
+
+}
+.banner{
+    width: 100%;
+    height: 650px;
+    background: url("../images/login_banner.jpg") no-repeat;
+    background-position: -200px 0px;
+    overflow: hidden;
+    >div{
+        width: 1000px;
+        margin:  0 auto;
+        position: relative;
+        >.content{
+            width: 350px;
+            height: 400px;
+            background: #fff;
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            .top{
+                height: 45px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #ccc;
+                .left,.right{
+                    width: 50%;
+                    height: 100%;
+                    @include flex;
+                }
+                .left{
+                    span{
+                        width: 100%;
+                        @include flex;
+                        border-right: 1px solid #ccc;
+                        font-weight: 700;
+                        font-size: 18px;
+                        color: $color;
+                    }
+                }
+                .right{
+                    font-weight: 700; 
+                    font-size: $fontSize;  
+                    &:hover{
+                        color: $color;
+                    }            
+                 }
+            }
+            >.bottom{
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+              .login-form,.register-form{
+                  width: 100%;
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: flex-start;
+                  align-items: center;
+                  cursor: pointer;
+                  #user_name,#r_user_name{
+                      margin-top: 50px;
+                  }
+                  #user_name,#password,#r_user_name,#r_password,#r_email{
+                      width: 80%;
+                      height: 40px;
+                      margin-bottom: 25px;
+                      padding-left: 15px;
+                  }
+                  #login,#create{
+                      width: 85%;
+                      height: 40px;
+                      background: $color;
+                      border:0;
+                      outline: none;
+                      font-size: $fontSize;
+                      font-weight: 700;
+                      color: #fff;
+                      border-radius: 2px;
+                  }
+                   >.message{
+                    width: 100%;
+                    height: 40px;
+                   display: flex;
+                   flex-direction: row;
+                   justify-content: center;
+                   align-items: center;
+                   font-size: 14px;
+                    a{
+                       width: 20%;
+                      margin-top: 25px;
+                      margin-left: 6px;
+                      &:hover{
+                       color: $color;   
+                      }
+                    }
+                  }
+              }
+             .login-form, .register-form{
+                  display: none;
+              }
+              .login-form.active,.register-form.active{
+                  display: flex;
+              }
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表页</title>
+    <link rel="stylesheet" href="../sass/list.css">
+    <link rel="stylesheet" href="../sass/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/cityPicker.css">
+	<link rel="stylesheet" href="../css/swiper.css">
+</head>
+<body>
+           <div class="big">
+             <!-- 头部导航栏 -->
+             @-@include("header.html")
+             <hr>
+             <script src="../js/list.js"></script>
+             <script src="../js/jquery-3.4.1.js"></script>
+             <script src="../js/page.js"></script>
+             <div class="list_centent">
+                 <div class="list_content_top">
+                   <!-- <p class="title">巴拉巴拉<span>1.4</span></p> -->
+                   <!-- <div class="change">
+                       <a href="#"><span>价格升序</span></a>
+                       <a href="#"><span>价格降序</span></a>
+                       <a href="#"><span>男装</span></a>
+                       <a href="#"><span>女装</span></a>
+                       <a href="#"><span>打折</span></a>
+                   </div> -->
+                 </div>
+                 <div class="list_content_bottom">
+                  <div id="a_1">
+                      <span class="first">综合</span>
+                      <span>销量</span>
+                      <span>价格</span>
+                      <span>折扣</span>
+                      <span class="last"><em></em>只看有货</span>
+                  </div> 
+                  <div class="list_show"></div>
+                 </div>
+             </div>
+             <!-- 尾部导航栏 -->
+             @-@include("footer.html")
+           </div>
+</body>
+</html>
