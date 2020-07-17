@@ -68,7 +68,7 @@ function sendAjax(obj){
     xhr.onreadystatechange = function(){
         if(xhr.readyState===4){
             if(xhr.status>=200 && xhr.status<300){
-                res = xhr.responseText;
+              var  res = xhr.responseText;
                 if(obj.dataType==="json"){
                     res = JSON.parse(res);
                 }

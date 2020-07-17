@@ -192,7 +192,7 @@ Page.prototype.createTag = function(){
         alignItems:"center",
         "margin":"auto"
     });
-    document.body.appendChild(this.box);
+    document.querySelector(".fy").appendChild(this.box);
     for(var attr in this.default.language){
         var div = document.createElement("div");
         div.innerText = this.default.language[attr];
